@@ -1,87 +1,3 @@
-// import express from "express";
-// import mongoose from "mongoose";
-// import dotenv from "dotenv";
-// import cors from "cors";
-// import userRouter from "../backend/routes/transactions.js";
-// import Transaction from "./Model/userData.js";
-// dotenv.config();
-
-// const app = express();
-// app.use(express.json());
-
-// const allowedOrigins = ["http://localhost:5174", "http://localhost:3000"];
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     // Allow requests with no origin (like mobile apps or curl requests)
-//     if (!origin) return callback(null, true);
-
-//     if (allowedOrigins.indexOf(origin) === -1) {
-//       console.log("Blocked origin:", origin);
-//       return callback(new Error("CORS policy restriction"), false);
-//     }
-//     return callback(null, true);
-//   },
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
-//   exposedHeaders: ["Set-Cookie"],
-//   maxAge: 86400,
-// };
-// app.use(cors(corsOptions));
-
-// app.put("/api/transactions/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     console.log("params:", req.params);
-//     // console.log("req body: ", req.body);
-//     const updateTransaction = await Transaction.findByIdAndUpdate(
-//       id,
-//       req.body,
-//       { new: true }
-//     );
-//     if (!updateTransaction) {
-//       return res
-//         .status(404)
-//         .json({ success: false, message: "Transaction not found" });
-//     }
-//     const transactions = await Transaction.find().sort({ date: -1 }); // Fetch all transactions sorted
-
-//     res.json({ success: true, data: transactions });
-//   } catch (err) {
-//     res.status(500).json({
-//       success: false,
-//       message: "Error updating transaction",
-//       error: err,
-//     });
-//   }
-// });
-// app.delete("/api/transactions/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const deleteTransactions = await Transaction.findByIdAndDelete(id);
-//     if (!deleteTransactions)
-//       return res
-//         .status(404)
-//         .json({ success: true, message: "this transaction is not found" });
-//     res
-//       .status(200)
-//       .json({ success: true, message: "Transaction deleted successfully" });
-//   } catch (err) {
-//     console.error("Error while deleting transaction:", err);
-//     res.status(500).json({ success: false, message: "Internal Server Error" });
-//   }
-// });
-// app.use("/api", userRouter);
-
-// const port = process.env.PORT || 5000;
-// const mongoUrl = `${process.env.MONGO_URL}${process.env.DB_NAME}`;
-// const mongoConn = async () => {
-//   await mongoose.connect(mongoUrl);
-//   console.log("DB CONNECTED HURRAAAYYYYY");
-// };
-// mongoConn().then(() =>
-//   app.listen(port, () => console.log(`App is listening on port ${port}`))
-// );
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -95,7 +11,12 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-const allowedOrigins = ["http://localhost:5174", "http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:5174",
+  "https://financebackend-nqf9.onrender.com",
+  "https://personalfinanceapplication.netlify.app/",
+  "http://localhost:3000",
+];
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps or curl requests)
