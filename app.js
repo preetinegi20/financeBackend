@@ -13,7 +13,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   "http://localhost:5174",
-  "https://financebackend-nqf9.onrender.com",
+  "https://financebackend-mamc.onrender.com",
   "https://personalfinanceapplication.netlify.app/",
   "http://localhost:3000",
 ];
