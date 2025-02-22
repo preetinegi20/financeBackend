@@ -14,7 +14,7 @@ app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5174",
   "https://financebackend-mamc.onrender.com",
-  "https://personalfinanceapplication.netlify.app/",
+  "https://personalfinanceapplication.netlify.app",
   "http://localhost:3000",
 ];
 const corsOptions = {
