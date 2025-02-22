@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import userRouter from "../backend/routes/transactions.js";
+import userRouter from "./routes/transactions.js";
 import Transaction from "./Model/userData.js";
 import Budget from "./Model/budget.js";
 
@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const allowedOrigins = [
-  "http://localhost:5174",
+  "http://localhost:5175",
   "https://financebackend-mamc.onrender.com",
   "https://personalfinanceapplication.netlify.app",
   "http://localhost:3000",
